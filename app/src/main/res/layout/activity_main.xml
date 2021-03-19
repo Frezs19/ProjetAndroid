@@ -1,26 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="@color/lightorange"
+    >
 
     <TextView
-        android:id="@+id/main_Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
+        android:id="@+id/main_NomAppli"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="TEST"
-        android:layout_below="@+id/main_Text"
-        android:onClick="onChoix"/>
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_margin="50dp"
+        android:textSize="50dp"
+        android:textColor="@color/blacky"
+        android:text="@string/app_name"
+        />
 
+    <TextView
+        android:id="@+id/main_TextNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_NomAppli"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:text="@string/main_nom"
+        />
+
+    <EditText
+        android:id="@+id/main_ChampNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_TextNom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:hint="@string/main_nom" />
+
+    <TextView
+        android:id="@+id/main_TextPrenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_ChampNom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:text="@string/main_prenom"
+        />
+
+    <EditText
+        android:id="@+id/main_ChampPrenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_TextPrenom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:hint="@string/main_prenom" />
+
+    <Button
+        android:id="@+id/main_BoutonConnexion"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_ChampPrenom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="@string/main_connecter"
+        android:textColor="@color/blacky"
+        android:backgroundTint="@color/orange"
+        />
+
+    <Button
+        android:id="@+id/main_BoutonConnexionAnonyme"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:text="@string/main_connecterAnonyme"
+        android:textColor="@color/blacky"
+        android:backgroundTint="@color/orange"/>
 </RelativeLayout>

@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Projet</string>
+        <string name="app_name">L\'ecole des Loustics</string>
+        <string name="main_nom">Nom</string>
+        <string name="main_prenom">Prénom</string>
+        <string name="main_connecter">Se connecter</string>
+        <string name="main_connecterAnonyme">Connexion Anonyme</string>
 </resources>
