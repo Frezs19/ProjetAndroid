@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TableMultiplicationActivity">
+
+    <TextView
+        android:id="@+id/textChoix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="Choisis ta table de multiplication"
+        android:gravity="center" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_below="@+id/textChoix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numberPicker"
+        android:hint="Valider"
+        android:onClick="onTable" />
+
+
+</RelativeLayout>
