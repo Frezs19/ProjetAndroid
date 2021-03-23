@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 public class ChoixActivity extends AppCompatActivity {
 
@@ -21,5 +20,13 @@ public class ChoixActivity extends AppCompatActivity {
 
         // Lancement de la demande de changement d'activité
         startActivity(TableMultiplication);
+    }
+
+    public void onAddition(View view) {
+        // Création d'une intention
+        Intent Addition = new Intent(this, AdditionActivity.class);
+
+        // Lancement de la demande de changement d'activité
+        startActivity(Addition);
     }
 }
