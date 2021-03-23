@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="30sp"
+        android:layout_margin="20sp"
         android:text="@string/main_connecterAnonyme"
         android:textColor="@color/blacky"
         android:backgroundTint="@color/orange"/>
