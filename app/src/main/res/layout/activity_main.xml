@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:background="@color/lightorange"
+    android:background="@color/light"
     >
 
     <TextView
@@ -38,8 +38,10 @@
         android:layout_below="@+id/main_TextNom"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10sp"
+        android:padding="5sp"
         android:textSize="22sp"
-        android:hint="@string/main_nom" />
+        android:hint="@string/main_nom"
+        android:background="@color/white"/>
 
     <TextView
         android:id="@+id/main_TextPrenom"
@@ -59,8 +61,10 @@
         android:layout_below="@+id/main_TextPrenom"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10sp"
+        android:padding="5sp"
         android:textSize="22sp"
-        android:hint="@string/main_prenom" />
+        android:hint="@string/main_prenom"
+        android:background="@color/white"/>
 
     <Button
         android:id="@+id/main_BoutonConnexion"

@@ -4,35 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdditionActivity">
-
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
+    tools:context=".AdditionActivity"
+    android:background="@color/light">
 
     <TextView
         android:id="@+id/compteurAddition"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textSize="32dp"
-        android:text="" />
+        android:textSize="30sp"
+        android:text=""
+        android:layout_alignParentTop="true"
+        android:layout_margin="10sp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/compteurAddition"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_marginTop="30sp"
+        android:layout_width="200sp"
+        android:id="@+id/addition_suivant"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:hint="Suivant"
-        android:onClick="onResult" />
+        android:onClick="onResult"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linear"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/orange"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="200sp"
+        android:id="@+id/addition_precedent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="50dp"
         android:hint="Précedent"
-        android:onClick="onPrec" />
+        android:onClick="onPrec"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/addition_suivant"
+        android:textColor="@color/blacky"
+        android:backgroundTint="@color/orange"/>
 
 </RelativeLayout>
