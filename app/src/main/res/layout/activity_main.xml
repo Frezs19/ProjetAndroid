@@ -76,8 +76,8 @@
 
     <Button
         android:id="@+id/main_BoutonConnexionAnonyme"
-        android:layout_width="200sp"
         android:onClick="onChoix"
+        android:layout_width="200sp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"

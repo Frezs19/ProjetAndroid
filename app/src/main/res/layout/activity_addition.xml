@@ -12,11 +12,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" />
 
+    <TextView
+        android:id="@+id/compteurAddition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="32dp"
+        android:text="" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:hint="Valider"
+        android:hint="Suivant"
         android:onClick="onResult" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:hint="Précedent"
+        android:onClick="onPrec" />
 
 </RelativeLayout>

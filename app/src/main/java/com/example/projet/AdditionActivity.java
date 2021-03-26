@@ -18,33 +18,69 @@ public class AdditionActivity extends AppCompatActivity {
 
     private Addition addition;
     private static final Random random = new Random();
+    private ArrayList<LinearLayout> listeAddition = new ArrayList<>();
+    private ArrayList<EditText> listeReponses = new ArrayList<>();
+    private ArrayList<Addition> listeCalcul = new ArrayList<>();
     private EditText resultat;
+    private TextView calcul;
+    private LinearLayout linear;
     int nbErreur = 0;
     int nbAdditions = 10;
+    int numAddition = 1;
+    TextView compteurAddition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addition);
 
-        addition = new Addition(random.nextInt(50), random.nextInt(50));
+        compteurAddition = findViewById(R.id.compteurAddition);
+        compteurAddition.setText(numAddition + "/10");
 
-        LinearLayout linear = (LinearLayout) findViewById(R.id.linear);
+        for (int i=0; i < nbAdditions; i++) {
+            addition = new Addition(random.nextInt(10), random.nextInt(1));
 
-        LinearLayout linearTMP = (LinearLayout) getLayoutInflater().inflate(R.layout.template_calcul, null);
+            LinearLayout linearTMP = (LinearLayout) getLayoutInflater().inflate(R.layout.template_calcul, null);
 
-        TextView calcul = (TextView) linearTMP.findViewById(R.id.template_calcul);
-        calcul.setText(addition.getOperande1() + " x " + addition.getOperande2() + " = ");
+            calcul = (TextView) linearTMP.findViewById(R.id.template_calcul);
+            calcul.setText(addition.getOperande1() + " + " + addition.getOperande2() + " = ");
 
-        resultat = (EditText) linearTMP.findViewById(R.id.template_resultat);
+            resultat = (EditText) linearTMP.findViewById(R.id.template_resultat);
 
-        linear.addView(linearTMP);
+            listeAddition.add(linearTMP);
+            listeCalcul.add(addition);
+            listeReponses.add(resultat);
+        }
+        linear = findViewById(R.id.linear);
+        linear.addView(listeAddition.get(numAddition-1));
     }
 
     public void onResult(View view) {
-        //Si il n'y a plus d'additions à afficher
-        if (nbAdditions==0) {
-            if (nbErreur==0) {
+        //Si il a encore des additions à afficher
+        if (numAddition!=nbAdditions) {
+            linear.removeAllViews();
+            numAddition++;
+            compteurAddition = findViewById(R.id.compteurAddition);
+            compteurAddition.setText(numAddition + "/10");
+            linear.addView(listeAddition.get(numAddition-1));
+        } else {
+            //Vérifie les erreurs
+            nbErreur=0;
+            int i=0;
+            for (Addition addition : listeCalcul) {
+                if (listeReponses.get(i).getText().toString().compareTo("")==0) {
+                    nbErreur++;
+                } else {
+                    addition.setRepUser(Integer.parseInt(listeReponses.get(i).getText().toString()));
+                    if (!addition.resultatAddition()) {
+                        nbErreur++;
+                    }
+                }
+                i++;
+            }
+
+            //Sinon on regarde le nombre d'erreur et on affiche la bonne activite
+            if (nbErreur == 0) {
                 Intent intent = new Intent(this, FelicitationActivity.class);
                 startActivity(intent);
             } else {
@@ -52,15 +88,16 @@ public class AdditionActivity extends AppCompatActivity {
                 intent.putExtra(ErreurActivity.ERREUR_KEY, nbErreur);
                 startActivity(intent);
             }
-        } else {
-            if (resultat.getText().toString().compareTo("")==0) {
-                nbErreur++;
-            } else {
-                addition.setRepUser(Integer.parseInt(resultat.getText().toString()));
-                if (!addition.resultatAddition()) {
-                    nbErreur++;
-                }
-            }
+        }
+    }
+
+    public void onPrec(View view) {
+        if (numAddition!=1) {
+            linear.removeAllViews();
+            numAddition--;
+            compteurAddition = findViewById(R.id.compteurAddition);
+            compteurAddition.setText(numAddition + "/10");
+            linear.addView(listeAddition.get(numAddition-1));
         }
     }
 }
