@@ -14,7 +14,7 @@ public class FelicitationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_felicitation);
     }
 
-    public void onAct5(View view) {
+    public void onRecommencer(View view) {
         Intent intent = new Intent(this, TableMultiplicationActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler, dans notre cas on va suprrimer feli et table
         startActivity(intent);

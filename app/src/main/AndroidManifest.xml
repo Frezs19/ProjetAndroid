@@ -13,6 +13,7 @@
         <activity android:name=".ErreurActivity" />
         <activity android:name=".FelicitationActivity" />
         <activity android:name=".ExerciceTableActivity" />
+        <activity android:name=".ExerciceAdditionActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
