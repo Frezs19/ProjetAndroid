@@ -4,51 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdditionActivity"
-    android:background="@color/light">
+    tools:context=".AdditionActivity">
+
+    <CheckBox
+        android:id="@+id/checkOp1C"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/checkOp1D"
+        android:onClick="onVerif"/>
+
+    <CheckBox
+        android:id="@+id/checkOp1D"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/checkOp1U"
+        android:onClick="onVerif"/>
+
+    <CheckBox
+        android:id="@+id/checkOp1U"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:checked="true"
+        android:layout_toLeftOf="@+id/textPlus"
+        android:onClick="onVerif"/>
 
     <TextView
-        android:id="@+id/compteurAddition"
-        android:layout_width="wrap_content"
+        android:id="@+id/textPlus"
+        android:paddingLeft="8sp"
+        android:layout_width="30sp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:textSize="30sp"
-        android:text=""
-        android:layout_alignParentTop="true"
-        android:layout_margin="10sp"
-        android:layout_centerHorizontal="true"/>
+        android:text="+"/>
 
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/checkOp2C"
+        android:layout_width="30sp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/compteurAddition"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20sp"/>
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textPlus"
+        android:onClick="onVerif"/>
+
+    <CheckBox
+        android:id="@+id/checkOp2D"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/checkOp2C"
+        android:onClick="onVerif"/>
+
+    <CheckBox
+        android:id="@+id/checkOp2U"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:checked="true"
+        android:layout_toRightOf="@+id/checkOp2D"
+        android:onClick="onVerif"/>
 
     <Button
-        android:layout_marginTop="30sp"
-        android:layout_width="200sp"
-        android:id="@+id/addition_suivant"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Suivant"
-        android:onClick="onResult"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/linear"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/orange"/>
+        android:layout_alignParentBottom="true"
+        android:hint="Lancer les opérations"
+        android:onClick="onExerciceAddition"/>
 
-    <Button
-        android:layout_width="200sp"
-        android:id="@+id/addition_precedent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:hint="Précedent"
-        android:onClick="onPrec"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/addition_suivant"
-        android:textColor="@color/blacky"
-        android:backgroundTint="@color/orange"/>
 
 </RelativeLayout>

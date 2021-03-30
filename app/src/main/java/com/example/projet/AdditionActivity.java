@@ -5,99 +5,68 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.example.projet.Data.Addition;
-
-import java.util.ArrayList;
-import java.util.Random;
+import android.widget.CheckBox;
 
 public class AdditionActivity extends AppCompatActivity {
-
-    private Addition addition;
-    private static final Random random = new Random();
-    private ArrayList<LinearLayout> listeAddition = new ArrayList<>();
-    private ArrayList<EditText> listeReponses = new ArrayList<>();
-    private ArrayList<Addition> listeCalcul = new ArrayList<>();
-    private EditText resultat;
-    private TextView calcul;
-    private LinearLayout linear;
-    int nbErreur = 0;
-    int nbAdditions = 10;
-    int numAddition = 1;
-    TextView compteurAddition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addition);
-
-        compteurAddition = findViewById(R.id.compteurAddition);
-        compteurAddition.setText(numAddition + "/10");
-
-        for (int i=0; i < nbAdditions; i++) {
-            addition = new Addition(random.nextInt(10), random.nextInt(1));
-
-            LinearLayout linearTMP = (LinearLayout) getLayoutInflater().inflate(R.layout.template_calcul, null);
-
-            calcul = (TextView) linearTMP.findViewById(R.id.template_calcul);
-            calcul.setText(addition.getOperande1() + " + " + addition.getOperande2() + " = ");
-
-            resultat = (EditText) linearTMP.findViewById(R.id.template_resultat);
-
-            listeAddition.add(linearTMP);
-            listeCalcul.add(addition);
-            listeReponses.add(resultat);
-        }
-        linear = findViewById(R.id.linear);
-        linear.addView(listeAddition.get(numAddition-1));
     }
 
-    public void onResult(View view) {
-        //Si il a encore des additions à afficher
-        if (numAddition!=nbAdditions) {
-            linear.removeAllViews();
-            numAddition++;
-            compteurAddition = findViewById(R.id.compteurAddition);
-            compteurAddition.setText(numAddition + "/10");
-            linear.addView(listeAddition.get(numAddition-1));
+    public void onExerciceAddition(View view) {
+        CheckBox checkOp1C = findViewById(R.id.checkOp1C);
+        CheckBox checkOp1D = findViewById(R.id.checkOp1D);
+        CheckBox checkOp2C = findViewById(R.id.checkOp2C);
+        CheckBox checkOp2D = findViewById(R.id.checkOp2D);
+        int choixOp1;
+        int choixOp2;
+        if (checkOp1C.isChecked() && checkOp1D.isChecked()) {
+            choixOp1 = 999;
+        } else if (!checkOp1C.isChecked() && checkOp1D.isChecked()) {
+            choixOp1 = 99;
         } else {
-            //Vérifie les erreurs
-            nbErreur=0;
-            int i=0;
-            for (Addition addition : listeCalcul) {
-                if (listeReponses.get(i).getText().toString().compareTo("")==0) {
-                    nbErreur++;
-                } else {
-                    addition.setRepUser(Integer.parseInt(listeReponses.get(i).getText().toString()));
-                    if (!addition.resultatAddition()) {
-                        nbErreur++;
-                    }
-                }
-                i++;
-            }
-
-            //Sinon on regarde le nombre d'erreur et on affiche la bonne activite
-            if (nbErreur == 0) {
-                Intent intent = new Intent(this, FelicitationActivity.class);
-                startActivity(intent);
-            } else {
-                Intent intent = new Intent(this, ErreurActivity.class);
-                intent.putExtra(ErreurActivity.ERREUR_KEY, nbErreur);
-                startActivity(intent);
-            }
+            choixOp1 = 9;
         }
+        if (checkOp2C.isChecked() && checkOp2D.isChecked()) {
+            choixOp2 = 999;
+        } else if (!checkOp2C.isChecked() && checkOp2D.isChecked()) {
+            choixOp2 = 99;
+        } else {
+            choixOp2 = 9;
+        }
+
+        Intent ExerciceAddition = new Intent(this, ExerciceAdditionActivity.class);
+        ExerciceAddition.putExtra(ExerciceAdditionActivity.OP1_KEY, choixOp1);
+        ExerciceAddition.putExtra(ExerciceAdditionActivity.OP2_KEY, choixOp2);
+        startActivity(ExerciceAddition);
+
     }
 
-    public void onPrec(View view) {
-        if (numAddition!=1) {
-            linear.removeAllViews();
-            numAddition--;
-            compteurAddition = findViewById(R.id.compteurAddition);
-            compteurAddition.setText(numAddition + "/10");
-            linear.addView(listeAddition.get(numAddition-1));
+    public void onVerif(View view) {
+        CheckBox checkOp1C = findViewById(R.id.checkOp1C);
+        CheckBox checkOp1D = findViewById(R.id.checkOp1D);
+        CheckBox checkOp1U = findViewById(R.id.checkOp1U);
+        CheckBox checkOp2C = findViewById(R.id.checkOp2C);
+        CheckBox checkOp2D = findViewById(R.id.checkOp2D);
+        CheckBox checkOp2U = findViewById(R.id.checkOp2U);
+
+        if (checkOp1C.isChecked()) {
+            checkOp1D.setChecked(true);
+            checkOp1U.setChecked(true);
+        } else if (checkOp1D.isChecked()) {
+            checkOp1C.setChecked(false);
         }
+
+        if (checkOp2C.isChecked()) {
+            checkOp2D.setChecked(true);
+            checkOp2U.setChecked(true);
+        } else if (checkOp2D.isChecked()) {
+            checkOp2C.setChecked(false);
+        }
+
+        checkOp1U.setChecked(true);
+        checkOp2U.setChecked(true);
     }
 }
