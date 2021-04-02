@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="@color/light"
+    >
+
+    <TextView
+        android:id="@+id/createacc_Titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_margin="50sp"
+        android:textSize="30sp"
+        android:textColor="@color/blacky"
+        android:text="@string/createacc_titre"
+        />
+
+    <TextView
+        android:id="@+id/createacc_TextNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createacc_Titre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10sp"
+        android:textSize="22sp"
+        android:text="@string/main_nom"
+        />
+
+    <EditText
+        android:id="@+id/createacc_ChampNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createacc_TextNom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10sp"
+        android:padding="5sp"
+        android:textSize="22sp"
+        android:hint="@string/main_nom"
+        android:background="@color/white"/>
+
+    <TextView
+        android:id="@+id/createacc_TextPrenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createacc_ChampNom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10sp"
+        android:textSize="22sp"
+        android:text="@string/main_prenom"
+        />
+
+    <EditText
+        android:id="@+id/createacc_ChampPrenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createacc_TextPrenom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10sp"
+        android:padding="5sp"
+        android:textSize="22sp"
+        android:hint="@string/main_prenom"
+        android:background="@color/white"/>
+
+    <Button
+        android:id="@+id/createacc_BoutonCreer"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createacc_ChampPrenom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22sp"
+        android:text="@string/createacc_creer"
+        android:textColor="@color/blacky"
+        android:backgroundTint="@color/orange"
+        />
+
+
+</RelativeLayout>
