@@ -1,12 +1,12 @@
 package com.example.projet.Data;
 
-public class Addition {
+public class Operation {
 
     private int op1;
     private int op2;
     private Integer repUser;
 
-    public Addition(int op1, int op2) {
+    public Operation(int op1, int op2) {
         this.op1 = op1;
         this.op2 = op2;
     }
@@ -23,6 +23,18 @@ public class Addition {
 
     public boolean resultatAddition() {
         return (op1+op2) == repUser;
+    }
+
+    public boolean resultatSoustraction() {
+        return (op1-op2) == repUser;
+    }
+
+    public boolean resultatMultiplication() {
+        return (op1*op2) == repUser;
+    }
+
+    public boolean resultatDivision() {
+        return (op1/op2) == repUser;
     }
 
 }

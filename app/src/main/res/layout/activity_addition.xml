@@ -71,7 +71,41 @@
         android:layout_toRightOf="@+id/checkOp2D"
         android:onClick="onVerif"/>
 
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button">
+
+        <RadioButton
+            android:id="@+id/Addition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Addition"/>
+
+        <RadioButton
+            android:id="@+id/Soustraction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Soustraction" />
+
+        <RadioButton
+            android:id="@+id/Multiplication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Multiplication" />
+
+        <RadioButton
+            android:id="@+id/Division"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Division" />
+
+    </RadioGroup>
+
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.RadioGroup;
 
 public class AdditionActivity extends AppCompatActivity {
 
@@ -16,10 +17,23 @@ public class AdditionActivity extends AppCompatActivity {
     }
 
     public void onExerciceAddition(View view) {
+        RadioGroup radioGroup = findViewById(R.id.radio_group);
+        String operation;
+        if (radioGroup.getCheckedRadioButtonId() == R.id.Division) {
+            operation = " / ";
+        } else if (radioGroup.getCheckedRadioButtonId() == R.id.Soustraction) {
+            operation = " - ";
+        } else if (radioGroup.getCheckedRadioButtonId() == R.id.Multiplication) {
+            operation = " x ";
+        } else {
+            operation = " + ";
+        }
+
         CheckBox checkOp1C = findViewById(R.id.checkOp1C);
         CheckBox checkOp1D = findViewById(R.id.checkOp1D);
         CheckBox checkOp2C = findViewById(R.id.checkOp2C);
         CheckBox checkOp2D = findViewById(R.id.checkOp2D);
+
         int choixOp1;
         int choixOp2;
         if (checkOp1C.isChecked() && checkOp1D.isChecked()) {
@@ -40,6 +54,7 @@ public class AdditionActivity extends AppCompatActivity {
         Intent ExerciceAddition = new Intent(this, ExerciceAdditionActivity.class);
         ExerciceAddition.putExtra(ExerciceAdditionActivity.OP1_KEY, choixOp1);
         ExerciceAddition.putExtra(ExerciceAdditionActivity.OP2_KEY, choixOp2);
+        ExerciceAddition.putExtra(ExerciceAdditionActivity.OPERATION_KEY, operation);
         startActivity(ExerciceAddition);
 
     }
