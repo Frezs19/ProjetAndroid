@@ -33,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
                 checkStudent();
             }
         });
+
+        Button boutonCreationCOmpte = findViewById(R.id.main_BoutonCreationCompte);
+        boutonCreationCOmpte.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Création d'une intention
+                Intent CreateAccountActivity = new Intent(MainActivity.this, CreateAccountActivity.class);
+
+                // Lancement de la demande de changement d'activité
+                startActivity(CreateAccountActivity);
+            }
+        });
     }
 
     public void onBoutonAnonyme(View view) {

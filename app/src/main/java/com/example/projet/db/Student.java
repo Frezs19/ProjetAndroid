@@ -19,7 +19,6 @@ public class Student implements Serializable {
     @ColumnInfo(name = "surName")
     private String surName;
 
-
     /*
      * Getters and Setters
      * */

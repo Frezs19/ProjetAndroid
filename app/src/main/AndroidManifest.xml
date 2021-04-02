@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet">
-        <activity android:name=".AdditionActivity"></activity>
+        <activity
+            android:name=".CreateAccountActivity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.Projet.NoActionBar"></activity>
+        <activity android:name=".AdditionActivity" />
         <activity android:name=".ErreurActivity" />
         <activity android:name=".FelicitationActivity" />
         <activity android:name=".ExerciceTableActivity" />

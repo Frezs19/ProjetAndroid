@@ -79,6 +79,18 @@
         />
 
     <Button
+        android:id="@+id/main_BoutonCreationCompte"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_BoutonConnexion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22sp"
+        android:text="@string/main_creationcompte"
+        android:textColor="@color/blacky"
+        android:backgroundTint="@color/orange"
+        />
+
+    <Button
         android:id="@+id/main_BoutonConnexionAnonyme"
         android:onClick="onBoutonAnonyme"
         android:layout_width="200sp"
