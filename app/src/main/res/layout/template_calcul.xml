@@ -3,18 +3,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/template_calcul"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:gravity="center" />
 
     <EditText
         android:id="@+id/template_resultat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="\?" />
+        android:hint="\?"
+        android:textSize="30sp"
+        android:gravity="center"/>
 
 </LinearLayout>

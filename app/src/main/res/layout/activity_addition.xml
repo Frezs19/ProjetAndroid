@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdditionActivity">
+
+    <CheckBox
+        android:id="@+id/checkOp1C"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/checkOp1D"
+        android:onClick="onVerif"/>
+
+    <CheckBox
+        android:id="@+id/checkOp1D"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/checkOp1U"
+        android:onClick="onVerif"/>
+
+    <CheckBox
+        android:id="@+id/checkOp1U"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:checked="true"
+        android:layout_toLeftOf="@+id/textPlus"
+        android:onClick="onVerif"/>
+
+    <TextView
+        android:id="@+id/textPlus"
+        android:paddingLeft="8sp"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="30sp"
+        android:text="+"/>
+
+    <CheckBox
+        android:id="@+id/checkOp2C"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textPlus"
+        android:onClick="onVerif"/>
+
+    <CheckBox
+        android:id="@+id/checkOp2D"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/checkOp2C"
+        android:onClick="onVerif"/>
+
+    <CheckBox
+        android:id="@+id/checkOp2U"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:checked="true"
+        android:layout_toRightOf="@+id/checkOp2D"
+        android:onClick="onVerif"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button">
+
+        <RadioButton
+            android:id="@+id/Addition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Addition"/>
+
+        <RadioButton
+            android:id="@+id/Soustraction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Soustraction" />
+
+        <RadioButton
+            android:id="@+id/Multiplication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Multiplication" />
+
+        <RadioButton
+            android:id="@+id/Division"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Division" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:hint="Lancer les opérations"
+        android:onClick="onExerciceAddition"/>
+
+
+</RelativeLayout>

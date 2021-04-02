@@ -15,11 +15,19 @@
         android:text="Choisis l'exercice de ton choix !" />
 
     <Button
+        android:id="@+id/choix_Button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/choix_TextMain"
         android:text="Table de multiplication"
         android:onClick="onTableMultiplication"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/choix_Button1"
+        android:text="Additions"
+        android:onClick="onAddition" />
 
 </RelativeLayout>
