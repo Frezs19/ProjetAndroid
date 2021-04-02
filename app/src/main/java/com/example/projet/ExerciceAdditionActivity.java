@@ -66,14 +66,11 @@ public class ExerciceAdditionActivity extends AppCompatActivity {
                 case " x ":
                     addition = new Operation(random.nextInt(op1), random.nextInt(op2));
                     break;
-                case " / ": //On veut que des nombres pairs pour n'avoir en résultat que des nombres entiers
+                case " / ": //On veut que des nombres multiples entre eux et que op2 soit inférieur à l'op1 pour avoir un résultat entier
                     int Dv1 = random.nextInt(op1);
                     int Dv2 = random.nextInt(op2);
-                    while ( (Dv2==0) || (Dv2%2==1) ) {
+                    while ( (Dv2==0) || (Dv2>Dv1) || (Dv1%Dv2!=0) ) {
                         Dv2 = random.nextInt(op2);
-                    }
-                    while ( (Dv1==0) || (Dv1%2==1) ) {
-                        Dv1 = random.nextInt(op1);
                     }
                     addition = new Operation(Dv1, Dv2);
                     break;
