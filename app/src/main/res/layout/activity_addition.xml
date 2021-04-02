@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".AdditionActivity">
 
+    <TextView
+        android:id="@+id/textConsignes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:text="Choissisez l'opération de votre choix ainsi que le nombre de chiffres que vous shouaitez !" />
+
     <CheckBox
         android:id="@+id/checkOp1C"
         android:layout_width="30sp"
@@ -82,25 +90,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Addition"/>
+            android:text="Addition"
+            android:onClick="onModifText"/>
 
         <RadioButton
             android:id="@+id/Soustraction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Soustraction" />
+            android:text="Soustraction"
+            android:onClick="onModifText"/>
 
         <RadioButton
             android:id="@+id/Multiplication"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Multiplication" />
+            android:text="Multiplication"
+            android:onClick="onModifText"/>
 
         <RadioButton
             android:id="@+id/Division"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Division" />
+            android:text="Division"
+            android:onClick="onModifText"/>
 
     </RadioGroup>
 
