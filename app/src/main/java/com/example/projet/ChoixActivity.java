@@ -24,7 +24,7 @@ public class ChoixActivity extends AppCompatActivity {
 
     public void onAddition(View view) {
         // Création d'une intention
-        Intent Addition = new Intent(this, AdditionActivity.class);
+        Intent Addition = new Intent(this, MathematiquesActivity.class);
 
         // Lancement de la demande de changement d'activité
         startActivity(Addition);

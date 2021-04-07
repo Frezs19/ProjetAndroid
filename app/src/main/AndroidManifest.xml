@@ -9,15 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet">
+        <activity android:name=".FinModeTimer"></activity>
         <activity
             android:name=".CreateAccountActivity"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Projet.NoActionBar"></activity>
-        <activity android:name=".AdditionActivity" />
+            android:theme="@style/Theme.Projet.NoActionBar" />
+        <activity android:name=".MathematiquesActivity" />
         <activity android:name=".ErreurActivity" />
         <activity android:name=".FelicitationActivity" />
         <activity android:name=".ExerciceTableActivity" />
-        <activity android:name=".ExerciceAdditionActivity" />
+        <activity android:name=".ExerciceMathematiquesActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
