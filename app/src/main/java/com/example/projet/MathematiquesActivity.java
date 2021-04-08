@@ -19,7 +19,8 @@ public class MathematiquesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mathematique);
     }
 
-    public void onExerciceAddition(View view) {
+    public void onExerciceMathematique(View view) {
+        //Récupérations des éléments nécéssaires depuis le .xml
         TextView consignes = findViewById(R.id.textConsignes);
         RadioGroup radioGroup = findViewById(R.id.radio_group);
         Switch timer = findViewById(R.id.SwitchTimer);

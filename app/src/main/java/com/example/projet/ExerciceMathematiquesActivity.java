@@ -50,10 +50,11 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
         //Récupération du nombre de calcul
         nbAdditions = getIntent().getIntExtra(NBCALCULS_KEY, 10);
 
+        //Récupération et mise à jour du compteur d'opérations
         compteurAddition = findViewById(R.id.compteurAddition);
         compteurAddition.setText(numAddition + "/" + nbAdditions);
 
-        //Récupération du mode
+        //Récupération du mode timer/pas timer
         timer = getIntent().getBooleanExtra(TIMER_KEY, false);
         if (timer) {
             //Création du timer et de ses méthodes
@@ -62,7 +63,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                 public void onTick(long millisUntilFinished) {
                     //Compteur addition devient un compteur de secondes
                     compteurAddition.setText("Il reste : " + millisUntilFinished / 1000 + " secondes");
-                    temps++;
+                    temps++; //Incrémentation de la variable temps pour le cas ou l'utilisateur finirai ses calculs avant la fin du timer
                 }
 
                 public void onFinish() {
@@ -81,6 +82,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
         String op = getIntent().getStringExtra(OPERATION_KEY);
         operation = op;
 
+        //Création des calculs, des linears
         for (int i=0; i < nbAdditions; i++) {
             switch (operation) {
                 case " + ":
@@ -97,7 +99,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                 case " x ":
                     addition = new Operation(random.nextInt(op1), random.nextInt(op2));
                     break;
-                case " / ": //On veut que des nombres multiples entre eux et que op2 soit inférieur à l'op1 pour avoir un résultat entier
+                case " / ": //On veut unqiuement des nombres multiples entre eux et que op2 soit inférieur à l'op1 pour avoir un résultat entier
                     int Dv1 = random.nextInt(op1);
                     int Dv2 = random.nextInt(op2);
                     while ( (Dv2==0) || (Dv2>Dv1) || (Dv1%Dv2!=0) ) {
@@ -115,9 +117,11 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
             resultat = (EditText) linearTMP.findViewById(R.id.template_resultat);
 
             listeAddition.add(linearTMP);
+            //On stock dans une liste, les calculs et les résponses
             listeCalcul.add(addition);
             listeReponses.add(resultat);
         }
+        //On affiche le premier calcul
         linear = findViewById(R.id.linear);
         linear.addView(listeAddition.get(numAddition-1));
     }
@@ -168,6 +172,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                     numAddition++;
                     linear.addView(listeAddition.get(numAddition-1));
                 } else {
+                    //Ici l'utilisateur a fini ses calculs avant la fin du timer donc on stop le timer et on affiche l'activité FinModeTimer avec le temps qu'il a fait et le nb de calcul
                     Chrono.cancel();
                     Intent intent = new Intent(vue, FinModeTimer.class);
                     intent.putExtra(FinModeTimer.NBREUSSI_KEY, nbCalculBons);
@@ -236,7 +241,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
             linear.removeAllViews();
             numAddition--;
             compteurAddition = findViewById(R.id.compteurAddition);
-            compteurAddition.setText(numAddition + "/10");
+            compteurAddition.setText(numAddition + "/" + nbAdditions);
             linear.addView(listeAddition.get(numAddition-1));
         }
     }
