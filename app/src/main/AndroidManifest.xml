@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet">
         <activity
+            android:name=".QuestionActivity"
+            android:label="@string/title_activity_question"
+            android:theme="@style/Theme.Projet.NoActionBar"></activity>
+        <activity
             android:name=".CreateAccountActivity"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Projet.NoActionBar"></activity>
+            android:theme="@style/Theme.Projet.NoActionBar" />
         <activity android:name=".AdditionActivity" />
         <activity android:name=".ErreurActivity" />
         <activity android:name=".FelicitationActivity" />

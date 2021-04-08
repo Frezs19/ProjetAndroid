@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button boutonCreationCOmpte = findViewById(R.id.main_BoutonCreationCompte);
-        boutonCreationCOmpte.setOnClickListener(new View.OnClickListener() {
+        Button boutonCreationCompte = findViewById(R.id.main_BoutonCreationCompte);
+        boutonCreationCompte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Création d'une intention
                 Intent CreateAccountActivity = new Intent(MainActivity.this, CreateAccountActivity.class);

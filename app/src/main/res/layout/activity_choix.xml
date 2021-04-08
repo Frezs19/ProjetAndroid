@@ -24,10 +24,18 @@
         android:onClick="onTableMultiplication"/>
 
     <Button
+        android:id="@+id/choix_boutonAddition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/choix_Button1"
         android:text="Additions"
         android:onClick="onAddition" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/choix_boutonAddition"
+        android:text="Question de culture général"
+        android:onClick="onQuestion"/>
 
 </RelativeLayout>

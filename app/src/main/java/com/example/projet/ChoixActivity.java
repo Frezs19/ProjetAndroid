@@ -29,4 +29,12 @@ public class ChoixActivity extends AppCompatActivity {
         // Lancement de la demande de changement d'activité
         startActivity(Addition);
     }
+
+    public void onQuestion(View view) {
+        // Création d'une intention
+        Intent Questions = new Intent(this, QuestionActivity.class);
+
+        // Lancement de la demande de changement d'activité
+        startActivity(Questions);
+    }
 }
