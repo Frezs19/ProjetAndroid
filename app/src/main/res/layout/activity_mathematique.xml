@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdditionActivity">
+    tools:context=".MathematiquesActivity">
 
     <TextView
         android:id="@+id/textConsignes"
@@ -79,6 +79,31 @@
         android:layout_toRightOf="@+id/checkOp2D"
         android:onClick="onVerif"/>
 
+    <Switch
+        android:id="@+id/SwitchTimer"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:layout_above="@+id/radio_group"
+        android:text="Mode timer" />
+
+    <TextView
+        android:id="@+id/textNbCalcul"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:layout_above="@+id/radio_group"
+        android:layout_toRightOf="@+id/SwitchTimer"
+        android:layout_marginLeft="30sp"
+        android:textSize="16sp"
+        android:text="Nombre de calculs :"/>
+
+    <EditText
+        android:id="@+id/nbCalcul"
+        android:layout_width="80sp"
+        android:layout_height="50sp"
+        android:layout_toRightOf="@+id/textNbCalcul"
+        android:layout_above="@+id/radio_group"
+        android:hint="10"/>
+
     <RadioGroup
         android:id="@+id/radio_group"
         android:layout_width="match_parent"
@@ -122,7 +147,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:hint="Lancer les opérations"
-        android:onClick="onExerciceAddition"/>
+        android:onClick="onExerciceMathematique"/>
 
 
 </RelativeLayout>

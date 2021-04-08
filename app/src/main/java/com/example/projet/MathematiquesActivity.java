@@ -6,33 +6,38 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 
-public class AdditionActivity extends AppCompatActivity {
+public class MathematiquesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addition);
+        setContentView(R.layout.activity_mathematique);
     }
 
-    public void onExerciceAddition(View view) {
+    public void onExerciceMathematique(View view) {
+        //Récupérations des éléments nécéssaires depuis le .xml
         TextView consignes = findViewById(R.id.textConsignes);
         RadioGroup radioGroup = findViewById(R.id.radio_group);
+        Switch timer = findViewById(R.id.SwitchTimer);
+        EditText nbCalculs = findViewById(R.id.nbCalcul);
         String operation;
         if (radioGroup.getCheckedRadioButtonId() == R.id.Division) {
             operation = " / ";
-            consignes.setText("Vous avez choisi la division /n Tout les résultats à trouver sont entiers et positifs");
+            consignes.setText("Vous avez choisi la division \n Tout les résultats à trouver sont entiers et positifs");
         } else if (radioGroup.getCheckedRadioButtonId() == R.id.Soustraction) {
             operation = " - ";
-            consignes.setText("Vous avez choisi la soustraction /n Tout les résultats à trouver sont entiers et positifs");
+            consignes.setText("Vous avez choisi la soustraction \n Tout les résultats à trouver sont entiers et positifs");
         } else if (radioGroup.getCheckedRadioButtonId() == R.id.Multiplication) {
             operation = " x ";
-            consignes.setText("Vous avez choisi la multiplication /n Tout les résultats à trouver sont entiers et positifs");
+            consignes.setText("Vous avez choisi la multiplication \n Tout les résultats à trouver sont entiers et positifs");
         } else {
             operation = " + ";
-            consignes.setText("Vous avez choisi l'addition /n Tout les résultats à trouver sont entiers et positifs");
+            consignes.setText("Vous avez choisi l'addition \n Tout les résultats à trouver sont entiers et positifs");
         }
 
         CheckBox checkOp1C = findViewById(R.id.checkOp1C);
@@ -57,10 +62,16 @@ public class AdditionActivity extends AppCompatActivity {
             choixOp2 = 9;
         }
 
-        Intent ExerciceAddition = new Intent(this, ExerciceAdditionActivity.class);
-        ExerciceAddition.putExtra(ExerciceAdditionActivity.OP1_KEY, choixOp1);
-        ExerciceAddition.putExtra(ExerciceAdditionActivity.OP2_KEY, choixOp2);
-        ExerciceAddition.putExtra(ExerciceAdditionActivity.OPERATION_KEY, operation);
+        Intent ExerciceAddition = new Intent(this, ExerciceMathematiquesActivity.class);
+        ExerciceAddition.putExtra(ExerciceMathematiquesActivity.OP1_KEY, choixOp1);
+        ExerciceAddition.putExtra(ExerciceMathematiquesActivity.OP2_KEY, choixOp2);
+        ExerciceAddition.putExtra(ExerciceMathematiquesActivity.OPERATION_KEY, operation);
+        ExerciceAddition.putExtra(ExerciceMathematiquesActivity.TIMER_KEY, timer.isChecked());
+        //Si l'utilisateur n'a rien saisi dans le champ, on met la valeur à 10
+        if (nbCalculs.getText().toString().compareTo("")==0) {
+            nbCalculs.setText("10");
+        }
+        ExerciceAddition.putExtra(ExerciceMathematiquesActivity.NBCALCULS_KEY, Integer.parseInt(nbCalculs.getText().toString()));
         startActivity(ExerciceAddition);
 
     }
@@ -95,13 +106,13 @@ public class AdditionActivity extends AppCompatActivity {
         TextView consignes = findViewById(R.id.textConsignes);
         RadioGroup radioGroup = findViewById(R.id.radio_group);
         if (radioGroup.getCheckedRadioButtonId() == R.id.Division) {
-            consignes.setText("Vous avez choisi la division Tout les résultats à trouver sont entiers et positifs");
+            consignes.setText("Vous avez choisi la division \n Tout les résultats à trouver sont entiers et positifs");
         } else if (radioGroup.getCheckedRadioButtonId() == R.id.Soustraction) {
-            consignes.setText("Vous avez choisi la soustraction Tout les résultats à trouver sont entiers et positifs");
+            consignes.setText("Vous avez choisi la soustraction \n Tout les résultats à trouver sont entiers et positifs");
         } else if (radioGroup.getCheckedRadioButtonId() == R.id.Multiplication) {
-            consignes.setText("Vous avez choisi la multiplication Tout les résultats à trouver sont entiers et positifs");
+            consignes.setText("Vous avez choisi la multiplication \n Tout les résultats à trouver sont entiers et positifs");
         } else {
-            consignes.setText("Vous avez choisi l'addition Tout les résultats à trouver sont entiers et positifs");
+            consignes.setText("Vous avez choisi l'addition \n Tout les résultats à trouver sont entiers et positifs");
         }
     }
 }
