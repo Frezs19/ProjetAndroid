@@ -97,8 +97,8 @@ public class QuestionActivity extends AppCompatActivity {
                 Intent intentFelicitation = new Intent(this, FelicitationActivity.class);
                 startActivity(intentFelicitation);
             } else {
-                Intent intentErreur = new Intent(this, ErreurActivity.class);
-                intentErreur.putExtra(ErreurActivity.ERREUR_KEY, nbErreur);
+                Intent intentErreur = new Intent(this, ErreurCultureActivity.class);
+                intentErreur.putExtra(ErreurCultureActivity.ERREUR_KEY, nbErreur);
                 startActivity(intentErreur);
             }
         }

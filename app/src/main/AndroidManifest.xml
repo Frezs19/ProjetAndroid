@@ -10,11 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet">
         <activity
+            android:name=".ErreurCultureActivity"
+            android:label="@string/title_activity_erreur_culture"
+            android:theme="@style/Theme.Projet.NoActionBar"></activity>
+        <activity
             android:name=".CreateAccountActivity"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.Projet.NoActionBar" />
         <activity android:name=".MathematiquesActivity" />
-        <activity android:name=".FinModeTimer"></activity>
+        <activity android:name=".FinModeTimer" />
         <activity android:name=".ErreurActivity" />
         <activity android:name=".QuestionActivity" />
         <activity android:name=".FelicitationActivity" />

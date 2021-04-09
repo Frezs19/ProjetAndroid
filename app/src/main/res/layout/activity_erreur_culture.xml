@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ErreurCultureActivity">
+
+    <TextView
+        android:id="@+id/erreurCulture_textErreur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:text="@string/erreur_textErreur"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/erreurCulture_textNbErreur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/erreurCulture_textErreur"
+        android:text="@string/erreur_textNbErreur"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/erreurCulture_textNbErreur"
+        android:hint="Corriger mes réponses"
+        android:onClick="onReturn" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:hint="Choisir un autre exercice"
+        android:onClick="onMenu" />
+
+
+</RelativeLayout>
