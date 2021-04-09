@@ -1,37 +1,103 @@
 package com.example.projet;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import com.example.projet.Data.Question;
 import com.example.projet.Data.Questions;
-import com.example.projet.db.DatabaseClient;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
-
-import org.json.JSONException;
+import android.widget.Toast;
 
 public class QuestionActivity extends AppCompatActivity {
     private Questions questions;
+    private int numeroQuestionActuelle = 0;
+    private int nbBonneReponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        try {
-            questions = new Questions();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
         TextView question = findViewById(R.id.question_Question);
-        question.setText("ouiii");
+        Button reponse1 = findViewById(R.id.question_bouton1);
+        Button reponse2 = findViewById(R.id.question_bouton2);
+        Button reponse3 = findViewById(R.id.question_bouton3);
+
+        questions = new Questions();
+
+        afficherQuestionActuelle();
+        actualiserAvancement();
+
+        reponse1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                cliqueBouton(1);
+            }
+        });
+
+        reponse2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                cliqueBouton(2);
+            }
+        });
+
+        reponse3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                cliqueBouton(3);
+            }
+        });
+    }
+
+    private void cliqueBouton(int numeroBouton){
+        String reponse;
+        if(verifierResultat(numeroBouton)){
+            reponse = "correct";
+        } else {
+            reponse = "incorrect";
+        }
+        Toast.makeText(QuestionActivity.this, "Réponse " + reponse, Toast.LENGTH_SHORT).show();
+        afficherQuestionSuivante();
+        actualiserAvancement();
+    }
+
+    private void afficherQuestionActuelle(){
+        TextView question = findViewById(R.id.question_Question);
+        Button reponse1 = findViewById(R.id.question_bouton1);
+        Button reponse2 = findViewById(R.id.question_bouton2);
+        Button reponse3 = findViewById(R.id.question_bouton3);
+
+        Question questionActuelle = questions.getQuestions().get(numeroQuestionActuelle);
+        question.setText(questionActuelle.getQuestion());
+        reponse1.setText(questionActuelle.getReponse1());
+        reponse2.setText(questionActuelle.getReponse2());
+        reponse3.setText(questionActuelle.getReponse3());
+    }
+
+    private boolean verifierResultat(int reponseDonne){
+        if(questions.getQuestions().get(numeroQuestionActuelle).getBonneReponseIndex() == reponseDonne){
+            nbBonneReponse++;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    private void afficherQuestionSuivante(){
+        if(numeroQuestionActuelle + 1 < questions.getQuestions().size()){
+            numeroQuestionActuelle++;
+            afficherQuestionActuelle();
+        }
+        else {
+            Toast.makeText(QuestionActivity.this, "Fin du test", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void actualiserAvancement(){
+        TextView avancement = findViewById(R.id.question_Avancement);
+        avancement.setText(numeroQuestionActuelle+1 + "/" + questions.getQuestions().size());
     }
 }

@@ -16,6 +16,7 @@
             android:theme="@style/Theme.Projet.NoActionBar" />
         <activity android:name=".MathematiquesActivity" />
         <activity android:name=".ErreurActivity" />
+        <activity android:name=".QuestionActivity" />
         <activity android:name=".FelicitationActivity" />
         <activity android:name=".ExerciceTableActivity" />
         <activity android:name=".ExerciceMathematiquesActivity" />

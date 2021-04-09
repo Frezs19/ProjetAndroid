@@ -53,4 +53,17 @@
         android:textColor="@color/blacky"
         android:backgroundTint="@color/orange"
         />
+
+    <TextView
+        android:id="@+id/question_Avancement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_margin="50sp"
+        android:textSize="30sp"
+        android:textColor="@color/blacky"
+        android:text=""
+        />
 </RelativeLayout>
