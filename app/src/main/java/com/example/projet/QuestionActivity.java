@@ -1,5 +1,6 @@
 package com.example.projet;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.projet.Data.Question;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 public class QuestionActivity extends AppCompatActivity {
     private Questions questions;
     private int numeroQuestionActuelle = 0;
-    private int nbBonneReponse;
+    private int nbErreur = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +79,10 @@ public class QuestionActivity extends AppCompatActivity {
 
     private boolean verifierResultat(int reponseDonne){
         if(questions.getQuestions().get(numeroQuestionActuelle).getBonneReponseIndex() == reponseDonne){
-            nbBonneReponse++;
             return true;
         }
         else {
+            nbErreur++;
             return false;
         }
     }
@@ -92,7 +93,14 @@ public class QuestionActivity extends AppCompatActivity {
             afficherQuestionActuelle();
         }
         else {
-            Toast.makeText(QuestionActivity.this, "Fin du test", Toast.LENGTH_LONG).show();
+            if (nbErreur == 0) {
+                Intent intentFelicitation = new Intent(this, FelicitationActivity.class);
+                startActivity(intentFelicitation);
+            } else {
+                Intent intentErreur = new Intent(this, ErreurActivity.class);
+                intentErreur.putExtra(ErreurActivity.ERREUR_KEY, nbErreur);
+                startActivity(intentErreur);
+            }
         }
     }
 
