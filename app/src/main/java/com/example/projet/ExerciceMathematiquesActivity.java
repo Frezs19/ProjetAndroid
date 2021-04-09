@@ -51,7 +51,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
         nbAdditions = getIntent().getIntExtra(NBCALCULS_KEY, 10);
 
         //Récupération et mise à jour du compteur d'opérations
-        compteurAddition = findViewById(R.id.compteurAddition);
+        compteurAddition = findViewById(R.id.exoMaths_compteurOperation);
         compteurAddition.setText(numAddition + "/" + nbAdditions);
 
         //Récupération du mode timer/pas timer
@@ -67,9 +67,9 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                 }
 
                 public void onFinish() {
-                    Intent intent = new Intent(vue, FinModeTimer.class);
-                    intent.putExtra(FinModeTimer.NBREUSSI_KEY, nbCalculBons);
-                    startActivity(intent);
+                    Intent intentFinModeTimer = new Intent(vue, FinModeTimer.class);
+                    intentFinModeTimer.putExtra(FinModeTimer.NBREUSSI_KEY, nbCalculBons);
+                    startActivity(intentFinModeTimer);
                 }
             }.start();
         }
@@ -174,10 +174,10 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                 } else {
                     //Ici l'utilisateur a fini ses calculs avant la fin du timer donc on stop le timer et on affiche l'activité FinModeTimer avec le temps qu'il a fait et le nb de calcul
                     Chrono.cancel();
-                    Intent intent = new Intent(vue, FinModeTimer.class);
-                    intent.putExtra(FinModeTimer.NBREUSSI_KEY, nbCalculBons);
-                    intent.putExtra(FinModeTimer.TIME_KEY, temps);
-                    startActivity(intent);
+                    Intent intentFinModeTimer = new Intent(vue, FinModeTimer.class);
+                    intentFinModeTimer.putExtra(FinModeTimer.NBREUSSI_KEY, nbCalculBons);
+                    intentFinModeTimer.putExtra(FinModeTimer.TIME_KEY, temps);
+                    startActivity(intentFinModeTimer);
                 }
             }
         } else {
@@ -186,7 +186,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
             if (numAddition!=nbAdditions) {
                 linear.removeAllViews();
                 numAddition++;
-                compteurAddition = findViewById(R.id.compteurAddition);
+                compteurAddition = findViewById(R.id.exoMaths_compteurOperation);
                 compteurAddition.setText(numAddition + "/" + nbAdditions);
                 linear.addView(listeAddition.get(numAddition-1));
             } else {
@@ -225,22 +225,23 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                 }
                 //Sinon on regarde le nombre d'erreur et on affiche la bonne activite
                 if (nbErreur == 0) {
-                    Intent intent = new Intent(this, FelicitationActivity.class);
-                    startActivity(intent);
+                    Intent intentFelicitation = new Intent(this, FelicitationActivity.class);
+                    startActivity(intentFelicitation);
                 } else {
-                    Intent intent = new Intent(this, ErreurActivity.class);
-                    intent.putExtra(ErreurActivity.ERREUR_KEY, nbErreur);
-                    startActivity(intent);
+                    Intent intentErreur = new Intent(this, ErreurActivity.class);
+                    intentErreur.putExtra(ErreurActivity.ERREUR_KEY, nbErreur);
+                    startActivity(intentErreur);
                 }
             }
         }
     }
 
     public void onPrec(View view) {
-        if (numAddition!=1) {
+        //Le bouton précédent ne fonctionne que en mode non timer (on aurait pu le cacher mais c'est plus compliqué)
+        if ( (numAddition!=1) && (!timer)) {
             linear.removeAllViews();
             numAddition--;
-            compteurAddition = findViewById(R.id.compteurAddition);
+            compteurAddition = findViewById(R.id.exoMaths_compteurOperation);
             compteurAddition.setText(numAddition + "/" + nbAdditions);
             linear.addView(listeAddition.get(numAddition-1));
         }

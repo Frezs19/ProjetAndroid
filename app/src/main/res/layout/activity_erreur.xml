@@ -7,34 +7,34 @@
     tools:context=".ErreurActivity">
 
     <TextView
-        android:id="@+id/textErreur"
+        android:id="@+id/erreur_textErreur"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40dp"
-        android:text="ERREUR(S) !!"
+        android:textSize="40sp"
+        android:text="@string/erreur_textErreur"
         android:gravity="center"/>
 
     <TextView
-        android:id="@+id/textNbErreur"
+        android:id="@+id/erreur_textNbErreur"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textErreur"
-        android:text="Nombre d'erreurs : x"
+        android:layout_below="@+id/erreur_textErreur"
+        android:text="@string/erreur_textNbErreur"
         android:gravity="center" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textNbErreur"
+        android:layout_below="@+id/erreur_textNbErreur"
         android:hint="Corriger mes réponses"
-        android:onClick="onTable" />
+        android:onClick="onReturn" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:hint="Choisir une autre table"
-        android:onClick="onChoix" />
+        android:hint="Choisir un autre exercice"
+        android:onClick="onChoixMaths" />
 
 
 </RelativeLayout>

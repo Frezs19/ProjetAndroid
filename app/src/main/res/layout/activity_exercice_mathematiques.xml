@@ -8,7 +8,7 @@
     android:background="@color/light">
 
     <TextView
-        android:id="@+id/compteurAddition"
+        android:id="@+id/exoMaths_compteurOperation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -23,14 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/compteurAddition"
+        android:layout_below="@+id/exoMaths_compteurOperation"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp"/>
 
     <Button
         android:layout_marginTop="30sp"
         android:layout_width="200sp"
-        android:id="@+id/addition_suivant"
+        android:id="@+id/exoMaths_operation_suivant"
         android:layout_height="wrap_content"
         android:hint="Suivant"
         android:onClick="onResult"
@@ -41,13 +41,13 @@
 
     <Button
         android:layout_width="200sp"
-        android:id="@+id/addition_precedent"
+        android:id="@+id/exoMaths_operation_precedent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:hint="Précedent"
         android:onClick="onPrec"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/addition_suivant"
+        android:layout_below="@+id/exoMaths_operation_suivant"
         android:textColor="@color/blacky"
         android:backgroundTint="@color/orange"/>
 

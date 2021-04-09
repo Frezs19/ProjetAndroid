@@ -20,19 +20,19 @@ public class FinModeTimer extends AppCompatActivity {
         int nbCalculReussis = getIntent().getIntExtra(NBREUSSI_KEY, 0);
         int temps = getIntent().getIntExtra(TIME_KEY, 0);
 
-        TextView textResultat = findViewById(R.id.textResultat);
+        TextView textResultat = findViewById(R.id.finModeTimer_textResultat);
         textResultat.setText(nbCalculReussis + "\n réponses justes \n en " + temps + " secondes");
     }
 
     public void onRejouer(View view) {
-        Intent intent = new Intent(this, MathematiquesActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        Intent intentMathematique = new Intent(this, MathematiquesActivity.class);
+        intentMathematique.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intentMathematique);
     }
 
     public void onMainAct(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler, dans notre cas on va suprrimer feli et table et act5
-        startActivity(intent);
+        Intent intentMain = new Intent(this, MainActivity.class);
+        intentMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler, dans notre cas on va suprrimer feli et table et act5
+        startActivity(intentMain);
     }
 }

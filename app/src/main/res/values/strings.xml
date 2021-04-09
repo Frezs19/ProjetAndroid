@@ -9,6 +9,23 @@
     <string name="createacc_creer">Créer</string>
     <string name="createacc_titre">Créer un nouveau compte</string>
 
+    <string name="choix_titre">Choisis l\'exercice de ton choix !</string>
+    <string name="choix_user">Anonyme</string>
+
+    <string name="maths_consignes">Choissisez l\'opération de votre choix ainsi que le nombre de chiffres que vous shouaitez !</string>
+    <string name="maths_timer">Mode timer</string>
+    <string name="maths_calcul">Nombre de calculs :</string>
+
+    <string name="finModeTimer_textResultat">xx \n réponses justes \n en 1 minute(s) et 0 seconde(s)</string>
+
+    <string name="felicitation_textFelicitation">FELICITATIONS !!!</string>
+
+    <string name="erreur_textErreur">ERREUR(S) !!</string>
+    <string name="erreur_textNbErreur">Nombre d\'erreurs : x</string>
+
+    <string name="general_menu">Menu</string>
+    <string name="general_rejouer">Rejouer</string>
+
     <string name="title_activity_main2">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

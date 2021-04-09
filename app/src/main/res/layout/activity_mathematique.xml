@@ -7,42 +7,42 @@
     tools:context=".MathematiquesActivity">
 
     <TextView
-        android:id="@+id/textConsignes"
+        android:id="@+id/maths_textConsignes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="24sp"
-        android:text="Choissisez l'opération de votre choix ainsi que le nombre de chiffres que vous shouaitez !" />
+        android:text="@string/maths_consignes" />
 
     <CheckBox
-        android:id="@+id/checkOp1C"
+        android:id="@+id/maths_checkOp1C"
         android:layout_width="30sp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/checkOp1D"
+        android:layout_toLeftOf="@+id/maths_checkOp1D"
         android:onClick="onVerif"/>
 
     <CheckBox
-        android:id="@+id/checkOp1D"
+        android:id="@+id/maths_checkOp1D"
         android:layout_width="30sp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/checkOp1U"
+        android:layout_toLeftOf="@+id/maths_checkOp1U"
         android:onClick="onVerif"/>
 
     <CheckBox
-        android:id="@+id/checkOp1U"
+        android:id="@+id/maths_checkOp1U"
         android:layout_width="30sp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerVertical="true"
         android:checked="true"
-        android:layout_toLeftOf="@+id/textPlus"
+        android:layout_toLeftOf="@+id/maths_textOperande"
         android:onClick="onVerif"/>
 
     <TextView
-        android:id="@+id/textPlus"
+        android:id="@+id/maths_textOperande"
         android:paddingLeft="8sp"
         android:layout_width="30sp"
         android:layout_height="wrap_content"
@@ -52,66 +52,66 @@
         android:text="+"/>
 
     <CheckBox
-        android:id="@+id/checkOp2C"
+        android:id="@+id/maths_checkOp2C"
         android:layout_width="30sp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textPlus"
+        android:layout_toRightOf="@+id/maths_textOperande"
         android:onClick="onVerif"/>
 
     <CheckBox
-        android:id="@+id/checkOp2D"
+        android:id="@+id/maths_checkOp2D"
         android:layout_width="30sp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/checkOp2C"
+        android:layout_toRightOf="@+id/maths_checkOp2C"
         android:onClick="onVerif"/>
 
     <CheckBox
-        android:id="@+id/checkOp2U"
+        android:id="@+id/maths_checkOp2U"
         android:layout_width="30sp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerVertical="true"
         android:checked="true"
-        android:layout_toRightOf="@+id/checkOp2D"
+        android:layout_toRightOf="@+id/maths_checkOp2D"
         android:onClick="onVerif"/>
 
     <Switch
-        android:id="@+id/SwitchTimer"
+        android:id="@+id/maths_SwitchTimer"
         android:layout_width="150sp"
         android:layout_height="30sp"
-        android:layout_above="@+id/radio_group"
-        android:text="Mode timer" />
+        android:layout_above="@+id/maths_radio_group"
+        android:text="@string/maths_timer" />
 
     <TextView
-        android:id="@+id/textNbCalcul"
+        android:id="@+id/maths_textNbCalcul"
         android:layout_width="150sp"
-        android:layout_height="30sp"
-        android:layout_above="@+id/radio_group"
-        android:layout_toRightOf="@+id/SwitchTimer"
+        android:layout_height="35sp"
+        android:layout_above="@+id/maths_radio_group"
+        android:layout_toRightOf="@+id/maths_SwitchTimer"
         android:layout_marginLeft="30sp"
         android:textSize="16sp"
-        android:text="Nombre de calculs :"/>
+        android:text="@string/maths_calcul"/>
 
     <EditText
-        android:id="@+id/nbCalcul"
+        android:id="@+id/maths_nbCalcul"
         android:layout_width="80sp"
         android:layout_height="50sp"
-        android:layout_toRightOf="@+id/textNbCalcul"
-        android:layout_above="@+id/radio_group"
+        android:layout_toRightOf="@+id/maths_textNbCalcul"
+        android:layout_above="@+id/maths_radio_group"
         android:hint="10"/>
 
     <RadioGroup
-        android:id="@+id/radio_group"
+        android:id="@+id/maths_radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button">
+        android:layout_above="@+id/maths_buttonValider">
 
         <RadioButton
-            android:id="@+id/Addition"
+            android:id="@+id/maths_Addition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -119,21 +119,21 @@
             android:onClick="onModifText"/>
 
         <RadioButton
-            android:id="@+id/Soustraction"
+            android:id="@+id/maths_Soustraction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Soustraction"
             android:onClick="onModifText"/>
 
         <RadioButton
-            android:id="@+id/Multiplication"
+            android:id="@+id/maths_Multiplication"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Multiplication"
             android:onClick="onModifText"/>
 
         <RadioButton
-            android:id="@+id/Division"
+            android:id="@+id/maths_Division"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Division"
@@ -142,7 +142,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/maths_buttonValider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

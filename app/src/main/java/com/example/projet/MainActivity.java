@@ -38,20 +38,20 @@ public class MainActivity extends AppCompatActivity {
         boutonCreationCompte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Création d'une intention
-                Intent CreateAccountActivity = new Intent(MainActivity.this, CreateAccountActivity.class);
+                Intent intentCreateAccountActivity = new Intent(MainActivity.this, CreateAccountActivity.class);
 
                 // Lancement de la demande de changement d'activité
-                startActivity(CreateAccountActivity);
+                startActivity(intentCreateAccountActivity);
             }
         });
     }
 
     public void onBoutonAnonyme(View view) {
         // Création d'une intention
-        Intent ChoixActivity = new Intent(this, ChoixActivity.class);
+        Intent intentChoixActivity = new Intent(this, ChoixActivity.class);
 
         // Lancement de la demande de changement d'activité
-        startActivity(ChoixActivity);
+        startActivity(intentChoixActivity);
     }
 
     private void checkStudent() {
@@ -79,8 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkIfStudentExist(List<Student> students){
         EditText surNameEdit = findViewById(R.id.main_ChampNom);
+        //surName contient le nom de l'utilisateur
         String surName = surNameEdit.getText().toString();
         EditText firstNameEdit = findViewById(R.id.main_ChampPrenom);
+        //fisrtName contient le prénom de l'utilisateur
         String firstName = firstNameEdit.getText().toString();
         boolean studentFound = false;
 
@@ -88,10 +90,13 @@ public class MainActivity extends AppCompatActivity {
             if(student.getFirstName().equalsIgnoreCase(firstName)){
                 studentFound = true;
                 // Création d'une intention
-                Intent ChoixActivity = new Intent(this, ChoixActivity.class);
+                Intent intentChoixActivity = new Intent(this, ChoixActivity.class);
+
+                //Envoi du nom et du prénom de l'utilisateur
+                intentChoixActivity.putExtra(ChoixActivity.NAME_KEY, surName + " " + firstName);
 
                 // Lancement de la demande de changement d'activité
-                startActivity(ChoixActivity);
+                startActivity(intentChoixActivity);
             }
         }
         if(!studentFound){

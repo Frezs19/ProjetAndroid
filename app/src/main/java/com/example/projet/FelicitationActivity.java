@@ -15,14 +15,14 @@ public class FelicitationActivity extends AppCompatActivity {
     }
 
     public void onRecommencer(View view) {
-        Intent intent = new Intent(this, TableMultiplicationActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler, dans notre cas on va suprrimer feli et table
-        startActivity(intent);
+        Intent intentMaths = new Intent(this, MathematiquesActivity.class);
+        intentMaths.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler, dans notre cas on va suprrimer feli et table
+        startActivity(intentMaths);
     }
 
-    public void onMainAct(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler, dans notre cas on va suprrimer feli et table et act5
-        startActivity(intent);
+    public void onChoixAct(View view) {
+        Intent intentChoix = new Intent(this, ChoixActivity.class);
+        intentChoix.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler, dans notre cas on va suprrimer feli et table et act5
+        startActivity(intentChoix);
     }
 }

@@ -16,17 +16,17 @@ public class ErreurActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_erreur);
         int nbErreur = getIntent().getIntExtra(ERREUR_KEY, 0);
-        TextView textnbErreur = findViewById(R.id.textNbErreur);
+        TextView textnbErreur = findViewById(R.id.erreur_textNbErreur);
         textnbErreur.setText("Nombre d'erreurs : " + nbErreur);
     }
 
-    public void onTable(View view) {
+    public void onReturn(View view) {
         super.finish();
     }
 
-    public void onChoix(View view ) {
-        Intent intent = new Intent(this, TableMultiplicationActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler, dans notre cas on va suprrimer erreur et table
-        startActivity(intent);
+    public void onChoixMaths(View view ) {
+        Intent intentMaths = new Intent(this, MathematiquesActivity.class);
+        intentMaths.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler, dans notre cas on va suprrimer erreur et table
+        startActivity(intentMaths);
     }
 }

@@ -7,25 +7,25 @@
     tools:context=".FelicitationActivity">
 
     <TextView
-        android:id="@+id/textFelicitation"
+        android:id="@+id/felicitation_textFelicitation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="40dp"
-        android:text="FELICITATIONS !!!"
+        android:text="@string/felicitation_textFelicitation"
         android:gravity="center" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textFelicitation"
-        android:hint="Recommencer"
+        android:layout_below="@+id/felicitation_textFelicitation"
+        android:hint="@string/general_rejouer"
         android:onClick="onRecommencer"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:hint="Choisir un autre exercice"
-        android:onClick="onMainAct"/>
+        android:hint="@string/general_menu"
+        android:onClick="onChoixAct"/>
 
 </RelativeLayout>

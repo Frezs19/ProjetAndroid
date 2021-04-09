@@ -10,31 +10,31 @@
         android:id="@+id/choix_TextMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="28dp"
+        android:textSize="28sp"
         android:gravity="center"
-        android:text="Choisis l'exercice de ton choix !" />
+        android:text="@string/choix_titre" />
 
-    <Button
-        android:id="@+id/choix_Button1"
+    <TextView
+        android:id="@+id/choix_TextUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_below="@+id/choix_TextMain"
-        android:text="Table de multiplication"
-        android:onClick="onTableMultiplication"/>
+        android:gravity="center"
+        android:textSize="28sp"
+        android:text="@string/choix_user"/>
 
     <Button
-        android:id="@+id/choix_boutonAddition"
+        android:id="@+id/choix_boutonCalcul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/choix_Button1"
-        android:text="Additions"
-        android:onClick="onAddition" />
+        android:layout_below="@+id/choix_TextUser"
+        android:text="Calculs"
+        android:onClick="onCalcul" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/choix_boutonAddition"
+        android:layout_below="@+id/choix_boutonCalcul"
         android:text="Question de culture général"
         android:onClick="onQuestion"/>
 

@@ -7,25 +7,25 @@
     tools:context=".FinModeTimer">
 
     <TextView
-        android:id="@+id/textResultat"
+        android:id="@+id/finModeTimer_textResultat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerInParent="true"
         android:textSize="26sp"
-        android:text="xx \n réponses justes \n en 1 minute(s) et 0 seconde(s)" />
+        android:text="@string/finModeTimer_textResultat" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Menu"
+        android:text="@string/general_menu"
         android:onClick="onMainAct"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Rejouer"
+        android:text="@string/general_rejouer"
         android:onClick="onRejouer"/>
 
 </RelativeLayout>
