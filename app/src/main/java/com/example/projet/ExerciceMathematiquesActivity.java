@@ -23,12 +23,12 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
     public static final String TIMER_KEY = "timer_key";
     public static final String NBCALCULS_KEY = "nbcalcul_key";
 
-    private Operation addition;
+    private Operation operation;
     private static final Random random = new Random();
-    private ArrayList<LinearLayout> listeAddition = new ArrayList<>();
+    private ArrayList<LinearLayout> listeOperation = new ArrayList<>();
     private ArrayList<EditText> listeReponses = new ArrayList<>();
     private ArrayList<Operation> listeCalcul = new ArrayList<>();
-    private String operation;
+    private String operationString;
     private EditText resultat;
     private TextView calcul;
     private LinearLayout linear;
@@ -37,10 +37,10 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
     boolean timer = false;
     ExerciceMathematiquesActivity vue = this; //Pour que le timer lance un intent
     int nbErreur = 0;
-    int nbAdditions = 10; //Valeur de base -> 10, mais on la change par la suite lors de la récupération des informations passés à la vue
-    int numAddition = 1;
+    int nbOperation = 10; //Valeur de base -> 10, mais on la change par la suite lors de la récupération des informations passés à la vue
+    int numOperation = 1;
     int nbCalculBons = 0;
-    TextView compteurAddition;
+    TextView compteurOperation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +48,11 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exercice_mathematiques);
 
         //Récupération du nombre de calcul
-        nbAdditions = getIntent().getIntExtra(NBCALCULS_KEY, 10);
+        nbOperation = getIntent().getIntExtra(NBCALCULS_KEY, 10);
 
         //Récupération et mise à jour du compteur d'opérations
-        compteurAddition = findViewById(R.id.exoMaths_compteurOperation);
-        compteurAddition.setText(numAddition + "/" + nbAdditions);
+        compteurOperation = findViewById(R.id.exoMaths_compteurOperation);
+        compteurOperation.setText(numOperation + "/" + nbOperation);
 
         //Récupération du mode timer/pas timer
         timer = getIntent().getBooleanExtra(TIMER_KEY, false);
@@ -62,7 +62,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
 
                 public void onTick(long millisUntilFinished) {
                     //Compteur addition devient un compteur de secondes
-                    compteurAddition.setText("Il reste : " + millisUntilFinished / 1000 + " secondes");
+                    compteurOperation.setText("Il reste : " + millisUntilFinished / 1000 + " secondes");
                     temps++; //Incrémentation de la variable temps pour le cas ou l'utilisateur finirai ses calculs avant la fin du timer
                 }
 
@@ -80,13 +80,13 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
 
         //Récupération de l'opération
         String op = getIntent().getStringExtra(OPERATION_KEY);
-        operation = op;
+        operationString = op;
 
         //Création des calculs, des linears
-        for (int i=0; i < nbAdditions; i++) {
-            switch (operation) {
+        for (int i=0; i < nbOperation; i++) {
+            switch (operationString) {
                 case " + ":
-                    addition = new Operation(random.nextInt(op1), random.nextInt(op2));
+                    operation = new Operation(random.nextInt(op1), random.nextInt(op2));
                     break;
                 case " - ": //On veut que l'op2 soit plus petit que l'op1 pour que le résultat soit toujours positif
                     int Sv1 = random.nextInt(op1);
@@ -94,36 +94,45 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                     while (Sv2 > Sv1) {
                         Sv2 = random.nextInt(op2);
                     }
-                    addition = new Operation(Sv1, Sv2);
+                    operation = new Operation(Sv1, Sv2);
                     break;
                 case " x ":
-                    addition = new Operation(random.nextInt(op1), random.nextInt(op2));
+                    operation = new Operation(random.nextInt(op1), random.nextInt(op2));
                     break;
                 case " / ": //On veut unqiuement des nombres multiples entre eux et que op2 soit inférieur à l'op1 pour avoir un résultat entier
-                    int Dv1 = random.nextInt(op1);
-                    int Dv2 = random.nextInt(op2);
-                    while ( (Dv2==0) || (Dv2>Dv1) || (Dv1%Dv2!=0) ) {
-                        Dv2 = random.nextInt(op2);
+                    int Dv1 = random.nextInt(op1/2);
+                    if (Dv1==0) {
+                        Dv1 = 2;
                     }
-                    addition = new Operation(Dv1, Dv2);
+                    if (Dv1%2!=0) {
+                        Dv1 = Dv1*2;
+                    }
+                    int Dv2 = random.nextInt(op2/2);
+                    if (Dv2==0) {
+                       Dv2 = 2;
+                    }
+                    if (Dv2>Dv1) {
+                        Dv2 = Dv1;
+                    }
+                    operation = new Operation(Dv1, Dv2);
                     break;
             }
 
             LinearLayout linearTMP = (LinearLayout) getLayoutInflater().inflate(R.layout.template_calcul, null);
 
             calcul = (TextView) linearTMP.findViewById(R.id.template_calcul);
-            calcul.setText(addition.getOperande1() + operation + addition.getOperande2() + " = ");
+            calcul.setText(operation.getOperande1() + operationString + operation.getOperande2() + " = ");
 
             resultat = (EditText) linearTMP.findViewById(R.id.template_resultat);
 
-            listeAddition.add(linearTMP);
+            listeOperation.add(linearTMP);
             //On stock dans une liste, les calculs et les résponses
-            listeCalcul.add(addition);
+            listeCalcul.add(operation);
             listeReponses.add(resultat);
         }
         //On affiche le premier calcul
         linear = findViewById(R.id.linear);
-        linear.addView(listeAddition.get(numAddition-1));
+        linear.addView(listeOperation.get(numOperation-1));
     }
 
     public void onResult(View view) {
@@ -133,7 +142,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                 nbErreur++;
             } else {
                 listeCalcul.get(nbCalculBons).setRepUser(Integer.parseInt(listeReponses.get(nbCalculBons).getText().toString()));
-                switch (operation) {
+                switch (operationString) {
                     case " + ":
                         if (!listeCalcul.get(nbCalculBons).resultatAddition()) {
                             nbErreur++;
@@ -167,10 +176,10 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                 //On utilise nbCalculBons pour compter le nombre de calcul réussis
                 nbCalculBons++;
                 //On affiche le calcul suivant si il en reste un
-                if (numAddition!=nbAdditions) {
+                if (numOperation!=nbOperation) {
                     linear.removeAllViews();
-                    numAddition++;
-                    linear.addView(listeAddition.get(numAddition-1));
+                    numOperation++;
+                    linear.addView(listeOperation.get(numOperation-1));
                 } else {
                     //Ici l'utilisateur a fini ses calculs avant la fin du timer donc on stop le timer et on affiche l'activité FinModeTimer avec le temps qu'il a fait et le nb de calcul
                     Chrono.cancel();
@@ -183,12 +192,12 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
         } else {
             //On fait la façon "classique"
             //Si il a encore des additions à afficher
-            if (numAddition!=nbAdditions) {
+            if (numOperation!=nbOperation) {
                 linear.removeAllViews();
-                numAddition++;
-                compteurAddition = findViewById(R.id.exoMaths_compteurOperation);
-                compteurAddition.setText(numAddition + "/" + nbAdditions);
-                linear.addView(listeAddition.get(numAddition-1));
+                numOperation++;
+                compteurOperation = findViewById(R.id.exoMaths_compteurOperation);
+                compteurOperation.setText(numOperation + "/" + nbOperation);
+                linear.addView(listeOperation.get(numOperation-1));
             } else {
                 //Vérifie les erreurs
                 nbErreur=0;
@@ -198,7 +207,7 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
                         nbErreur++;
                     } else {
                         addition.setRepUser(Integer.parseInt(listeReponses.get(i).getText().toString()));
-                        switch (operation) {
+                        switch (operationString) {
                             case " + ":
                                 if (!addition.resultatAddition()) {
                                     nbErreur++;
@@ -238,12 +247,12 @@ public class ExerciceMathematiquesActivity extends AppCompatActivity {
 
     public void onPrec(View view) {
         //Le bouton précédent ne fonctionne que en mode non timer (on aurait pu le cacher mais c'est plus compliqué)
-        if ( (numAddition!=1) && (!timer)) {
+        if ( (numOperation!=1) && (!timer)) {
             linear.removeAllViews();
-            numAddition--;
-            compteurAddition = findViewById(R.id.exoMaths_compteurOperation);
-            compteurAddition.setText(numAddition + "/" + nbAdditions);
-            linear.addView(listeAddition.get(numAddition-1));
+            numOperation--;
+            compteurOperation = findViewById(R.id.exoMaths_compteurOperation);
+            compteurOperation.setText(numOperation + "/" + nbOperation);
+            linear.addView(listeOperation.get(numOperation-1));
         }
     }
 }
