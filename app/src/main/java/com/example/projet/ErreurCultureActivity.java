@@ -21,7 +21,9 @@ public class ErreurCultureActivity extends AppCompatActivity {
     }
 
     public void onReturn(View view) {
-        super.finish();
+        Intent question = new Intent(this, QuestionActivity.class);
+        question.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //supprime les activités qui sont au dessus de l'activité qu'on va appeler
+        startActivity(question);
     }
 
     public void onMenu(View view ) {

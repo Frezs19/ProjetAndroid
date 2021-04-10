@@ -14,19 +14,11 @@
         android:text="@string/erreur_textErreur"
         android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/erreurCulture_textNbErreur"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/erreurCulture_textErreur"
-        android:text="@string/erreur_textNbErreur"
-        android:gravity="center" />
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/erreurCulture_textNbErreur"
-        android:hint="Corriger mes réponses"
+        android:layout_below="@+id/erreurCulture_textErreur"
+        android:hint="Rejouer"
         android:onClick="onReturn" />
 
     <Button
